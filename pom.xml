@@ -73,6 +73,49 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+		<configuration>
+			<excludes>
+			<exclude>com/fernandocanabarro/desafio_ze_delivery/DesafioZeDeliveryApplication.class</exclude>
+						<exclude>com/fernandocanabarro/desafio_ze_delivery/config/**</exclude>
+						<exclude>com/fernandocanabarro/desafio_ze_delivery/domain/**</exclude>
+						<exclude>com/fernandocanabarro/desafio_ze_delivery/controllers/exceptions/**</exclude>
+						<exclude>com/fernandocanabarro/desafio_ze_delivery/services/exceptions/**</exclude>
+						<exclude>com/fernandocanabarro/desafio_ze_delivery/services/validations/**</exclude>
+			</excludes>
+		</configuration>
+		<executions>
+			<execution>
+				<goals>
+					<goal>prepare-agent</goal>
+				</goals>
+			</execution>
+			<execution>
+				<id>report</id>
+				<phase>prepare-package</phase>
+				<goals>
+					<goal>report</goal>
+				</goals>
+			</execution>
+		</executions>
+		
+		</plugin>
 		</plugins>
 	</build>
 
