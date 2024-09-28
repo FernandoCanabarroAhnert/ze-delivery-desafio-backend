@@ -17,13 +17,14 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.fernandocanabarro.desafio_ze_delivery.domain.dtos.PartnerListDTO;
 import com.fernandocanabarro.desafio_ze_delivery.domain.dtos.PartnerRequestDTO;
 import com.fernandocanabarro.desafio_ze_delivery.domain.dtos.PartnerResponseDTO;
+import com.fernandocanabarro.desafio_ze_delivery.openapi.PartnerControllerOpenAPI;
 import com.fernandocanabarro.desafio_ze_delivery.services.PartnerService;
 
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/partners")
-public class PartnerController {
+public class PartnerController implements PartnerControllerOpenAPI{
 
     @Autowired
     private PartnerService service;
